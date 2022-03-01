@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+skinparam ClassAttributeIconSize 0
+top to bottom direction
+object office
+office : + Number : String
+office : + Floor : Integer
+office : + Address : String
+
+object employee
+employee : + FirstName : String
+employee : + LastName : String
+employee : + Salary : Real
+employee : + Office : Office
+
+object ceo
+object worker
+object manager
+
+ceo --> employee
+worker --> employee
+manager --> employee
+
+object JohnSmith
+JohnSmith : FirstName = John
+JohnSmith : Lastname = Smith
+JohnSmith : Salary = 1000
+JohnSmith : Office = OpenOffice
+note bottom of JohnSmith : Worker Object
+
+object OpenOffice
+OpenOffice : Number = 107
+OpenOffice : Floor = 1
+OpenOffice : Address = California
+note bottom of OpenOffice : Office Object
+
+
+@enduml
