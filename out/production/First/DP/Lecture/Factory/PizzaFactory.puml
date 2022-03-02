@@ -1,0 +1,99 @@
+@startuml
+
+
+abstract class Pizza{
+ abstact void receipe()
+ void bake()
+ void cut()
+ void pack()
+}
+class VegPizza
+{
+
+}
+ enum VegContent
+ {
+   CHEESE
+   CORN
+ }
+class NonVegPizza
+{
+
+}
+enum NonVegContent
+{
+  CHICKEN
+  EGG
+}
+
+VegPizza o-- VegContent : contains
+NonVegPizza o-- NonVegContent : contains
+
+class CheesePizza{
+}
+class CornPizza{
+}
+class ChickenPizza{
+}
+class EggPizza
+{
+}
+
+Pizza <-- VegPizza : extends
+Pizza <-- NonVegPizza : extends
+NonVegPizza <-- ChickenPizza : extends
+NonVegPizza <-- EggPizza : extends
+VegPizza <-- CornPizza : extends
+VegPizza <-- CheesePizza : extends
+
+class PizzaStore{
+ Pizza P
+ void orderPizza(String)
+}
+
+class Test
+{
+ public main()
+}
+
+class PizzaFactory
+{
+
+}
+class NagpurPizzaFactory
+{
+}
+class PunePizzaFactory
+{
+}
+class MumbaiPizzaFactory
+{
+}
+class NashikPizzaFactory
+{
+}
+
+
+NagpurPizzaFactory -up-> PizzaFactory : extends
+PunePizzaFactory -left-> PizzaFactory : extends
+MumbaiPizzaFactory -right-> PizzaFactory : extends
+NashikPizzaFactory -down-> PizzaFactory : extends
+
+class PizzaStore
+{
+}
+class BardiPizzaStore
+{
+}
+class ShankarNagarPizzaStore
+{
+}
+class ItwariPizzaStore
+{
+}
+
+BardiPizzaStore --> PizzaStore :extends
+ShankarNagarPizzaStore --> PizzaStore :extends
+ItwariPizzaStore --> PizzaStore :extends
+
+@enduml

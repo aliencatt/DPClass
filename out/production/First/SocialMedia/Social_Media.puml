@@ -1,0 +1,63 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Twitter
+{
+<b>overridden</b> void chat()
+<b>super :</b> void uploadPhoto()
+<b>super :</b> void create_reel()
+<b>super :</b> void sendRequest()
+}
+class Facebook
+{
+<b>overridden</b> void chat()
+<b>super :</b> void uploadPhoto()
+<b>super :</b> void create_reel()
+<b>super :</b> void sendRequest()
+}
+class Instagram
+{
+<b>overridden</b> void chat()
+<b>super :</b> void uploadPhoto()
+<b>super :</b> void create_reel()
+<b>super :</b> void sendRequest()
+}
+class WhatsApp
+{
+<b>overridden</b> void chat()
+<b>super :</b> void uploadPhoto()
+<b>super :</b> void create_reel()
+<b>super :</b> void sendRequest()
+}
+interface Social_Media
+note right : Social Media Interface
+class User_Test
+skinparam ClassAttributeIconSize 0
+class User
+{
+ + Social_Media Social_Media
+ + constructor()
+}
+
+Social_Media <-- Facebook : extends
+Social_Media <-- Instagram : extends
+Social_Media <-- WhatsApp : extends
+Social_Media <-- Twitter : extends
+
+User o-- Social_Media : contains
+
+class User_Test{
+ <b>public</b> main()
+ }
+note right : Main Method
+ interface Social_Media
+ {
+  <b>public</b> void chat()
+  <b>default</b> void uploadPhoto()
+  <b>default</b> void create_reel()
+  <b>default</b> void sendRequest()
+ }
+
+
+
+@enduml

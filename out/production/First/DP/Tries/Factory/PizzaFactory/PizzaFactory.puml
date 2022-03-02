@@ -1,0 +1,227 @@
+@startuml
+
+
+
+abstract class Pizza{
+ abstact void receipe()
+ void bake()
+ void cut()
+ void pack()
+}
+class VegPizza
+{
+
+}
+
+class NonVegPizza
+{
+
+}
+enum NonVegPizzaContent
+{
+  CHICKEN
+  EGG
+}
+enum Basic
+{
+   CRUST
+    OIL
+    WATER
+    CHEESE
+    SALT
+}
+enum Herbs_n_Spices
+ {
+     BASIL
+     CORIANDER
+     GARLIC
+     OREGANO
+     PEPPAR
+     ROSEMARY
+     MEXICAN_HERBS
+ }
+ enum Nuts
+  {
+   ALMONDS
+    PEANUTS
+    PISTACHIOS
+    PINE_NUTS
+    WALNUTS
+  }
+  enum Sauces
+  {
+     CHILI
+      TOMOTO
+      MOZZARELLA_CHEESE
+      FETA
+      PARMESAN
+      CHEDDAR
+      MONTEREY
+  }
+  enum VegPizzaContents
+  {
+      CHEESE
+      CORN
+      MAYONEESE
+      MARGHERITA
+      CARROTS
+      TOMATOS
+      MUSHROOMS
+      ONIONS
+      OLIVES
+      BEANS
+      PEPPERS
+      SPINACH
+      BLACK_OLIVES
+      CAPSICUM
+      GRILLED_MUSHROOM
+      JALAPENO
+  }
+
+class CheesePizza{
+}
+class CornPizza{
+}
+class Margherita
+{
+}
+class Mexican_Green_Wave
+{
+}
+class Veg_Extravaganza
+{
+}
+
+class ChickenDominator{
+}
+class Chicken_Fiesta
+{
+}
+class Chicken_Fiesta_Maximus
+{
+}
+class Chicken_Pepperoni
+{
+
+}
+
+
+
+Pizza <-- VegPizza : extends
+Pizza <-- NonVegPizza : extends
+NonVegPizza <-- ChickenDominator : extends
+NonVegPizza <-- Chicken_Fiesta : extends
+NonVegPizza <-- Chicken_Fiesta_Maximus : extends
+NonVegPizza <-- Chicken_Pepperoni : extends
+VegPizza <-- CornPizza : extends
+VegPizza <-- CheesePizza : extends
+VegPizza <-- Margherita : extends
+VegPizza <-- Mexican_Green_Wave : extends
+VegPizza <-- Veg_Extravaganza : extends
+
+ChickenDominator o-- Basic : contains
+Chicken_Fiesta o-- Basic : contains
+Chicken_Fiesta_Maximus o-- Basic : contains
+Chicken_Pepperoni o-- Basic : contains
+CheesePizza o-- Basic : contains
+CornPizza o-- Basic : contains
+Margherita o-- Basic : contains
+Mexican_Green_Wave o-- Basic : contains
+Veg_Extravaganza o-- Basic : contains
+
+ChickenDominator o-- Herbs_n_Spices : contains
+Chicken_Fiesta o-- Herbs_n_Spices : contains
+Chicken_Fiesta_Maximus o-- Herbs_n_Spices : contains
+Chicken_Pepperoni o-- Herbs_n_Spices : contains
+CheesePizza o-- Herbs_n_Spices : contains
+CornPizza o-- Herbs_n_Spices : contains
+Margherita o-- Herbs_n_Spices : contains
+Mexican_Green_Wave o-- Herbs_n_Spices : contains
+Veg_Extravaganza o-- Herbs_n_Spices : contains
+
+ChickenDominator o-- NonVegPizzaContent : contains
+Chicken_Fiesta o-- NonVegPizzaContent : contains
+Chicken_Fiesta_Maximus o-- NonVegPizzaContent : contains
+Chicken_Pepperoni o-- NonVegPizzaContent : contains
+
+ChickenDominator o-- Nuts : contains
+Chicken_Fiesta o-- Nuts : contains
+Chicken_Fiesta_Maximus o-- Nuts : contains
+Chicken_Pepperoni o-- Nuts : contains
+CheesePizza o-- Nuts : contains
+CornPizza o-- Nuts : contains
+Margherita o-- Nuts : contains
+Mexican_Green_Wave o-- Nuts : contains
+Veg_Extravaganza o-- Nuts : contains
+
+ChickenDominator o-- Sauces : contains
+Chicken_Fiesta o-- Sauces : contains
+Chicken_Fiesta_Maximus o-- Sauces : contains
+Chicken_Pepperoni o-- Sauces : contains
+CheesePizza o-- Sauces : contains
+CornPizza o-- Sauces : contains
+Margherita o-- Sauces : contains
+Mexican_Green_Wave o-- Sauces : contains
+Veg_Extravaganza o-- Sauces : contains
+
+CheesePizza o-- VegPizzaContents : contains
+CornPizza o-- VegPizzaContents : contains
+Margherita o-- VegPizzaContents : contains
+Mexican_Green_Wave o-- VegPizzaContents : contains
+Veg_Extravaganza o-- VegPizzaContents : contains
+
+
+
+
+
+class PizzaStore{
+ Pizza P
+ void orderPizza(String)
+}
+
+class Test
+{
+ public main()
+}
+
+class PizzaFactory
+{
+
+}
+class NagpurPizzaFactory
+{
+}
+class PunePizzaFactory
+{
+}
+class MumbaiPizzaFactory
+{
+}
+class NashikPizzaFactory
+{
+}
+
+
+NagpurPizzaFactory -up-> PizzaFactory : extends
+PunePizzaFactory -left-> PizzaFactory : extends
+MumbaiPizzaFactory -right-> PizzaFactory : extends
+NashikPizzaFactory -down-> PizzaFactory : extends
+
+class PizzaStore
+{
+}
+class BardiPizzaStore
+{
+}
+class ShankarNagarPizzaStore
+{
+}
+class ItwariPizzaStore
+{
+}
+
+BardiPizzaStore --> PizzaStore :extends
+ShankarNagarPizzaStore --> PizzaStore :extends
+ItwariPizzaStore --> PizzaStore :extends
+
+@enduml
