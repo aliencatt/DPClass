@@ -1,5 +1,6 @@
 @startuml
 
+
 abstract class Pizza{
  abstact void receipe()
  void bake()
@@ -68,10 +69,15 @@ class PunePizzaFactory
 class MumbaiPizzaFactory
 {
 }
+class NashikPizzaFactory
+{
+}
 
-NagpurPizzaFactory --> PizzaFactory : extends
-PunePizzaFactory --> PizzaFactory : extends
-MumbaiPizzaFactory --> PizzaFactory : extends
+
+NagpurPizzaFactory -up-> PizzaFactory : extends
+PunePizzaFactory -left-> PizzaFactory : extends
+MumbaiPizzaFactory -right-> PizzaFactory : extends
+NashikPizzaFactory -down-> PizzaFactory : extends
 
 class PizzaStore
 {
