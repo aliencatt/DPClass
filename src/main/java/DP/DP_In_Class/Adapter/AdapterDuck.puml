@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+left to right direction
+interface Duck
+{
+ void fly()
+ void quack()
+}
+
+interface Turkey
+{
+ void fly()
+ void gobble()
+}
+
+class TurkeyAdapter
+{
+ Turkey t
+  TurkeyAdapter(Turkey t)
+}
+
+class WildTurkey
+{
+ void fly()
+ void gobble()
+}
+
+class AdapterDemo
+{
+psvm();
+void TestDuck(Duck d)
+}
+
+WildTurkey --|> Turkey
+TurkeyAdapter --|> Duck
+TurkeyAdapter o-- Turkey
+
+
+
+@enduml
